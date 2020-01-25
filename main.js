@@ -174,7 +174,7 @@ const pets = [
       color: "Red",
       specialSkill: "Knows the words to 4 rap songs.",
       type: "cat",
-      imageUrl: "https://images.fineartamerica.com/images/artworkimages/medium/1/2-red-cat-doug-long.jpg"
+      imageUrl: "https://www.goodnet.org/photos/281x197/28588_hd.jpg"
     },
     {
       name: "Bubba",
@@ -202,14 +202,14 @@ const pets = [
       color: "Green",
       specialSkill: "Gives hugs with appropriate pressure and for the right length of time.",
       type: "cat",
-      imageUrl: "http://labyes.com/wp-content/uploads/2017/09/pulgas_gatos-600x400.jpg"
+      imageUrl: "http://img.izismile.com/img/img2/20090219/cats_02.jpg"
     },
     {
       name: "Lucy",
       color: "Red",
       specialSkill: "Doesn’t get weirded out by the word “moist.”",
       type: "dino",
-      imageUrl: "http://i.hurimg.com/i/hdn/75/600x400/5a7053fa7152d8157c0688df.jpg"
+      imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
 
@@ -222,23 +222,11 @@ const buildPetCards = () => {
     let domString = '';
     for (let i = 0; i < pets.length; i++) {
       domString += `<div class="petCard">`;
-      if (pets[i].type === 'dog') {
-        domString += `<header class="petName" id="dogs"><h2>${pets[i].name}</h2></header>`;
-      } else if (pets[i].type === 'cat') {
-        domString += `<header class="petName" id="cats"><h2>${pets[i].name}</h2></header>`;
-      } else {
-        domString += `<header class="petName" id="dinos"><h2>${pets[i].name}</h2></header>`;
-      }
+      domString += `<header class="petName"><h2>${pets[i].name}</h2></header>`;
       domString += `<section class="petImage"><img src=${pets[i].imageUrl} alt="A ${pets[i].color} ${pets[i].type} named ${pets[i].name}"></section>`;
       domString += `<section class="petColor">${pets[i].color}</section>`;
       domString += `<section class="petSkill">${pets[i].specialSkill}</section>`;
-      if (pets[i].type === 'dog') {
-        domString += `<footer class="petType" id="dogs">${pets[i].type}</section>`;
-      } else if (pets[i].type === 'cat') {
-        domString += `<footer class="petType" id="cats">${pets[i].type}</section>`;
-      } else {
-        domString += `<footer class="petType" id="dinos">${pets[i].type}</section>`;
-      }
+      domString += `<footer class="petType">${pets[i].type}</section>`;
       domString += `</div>`;
     }
     printToDom('pet-barn', domString);
