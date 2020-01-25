@@ -1,5 +1,6 @@
 console.log('Hello Pets')
 
+// Pet Objects
 const pets = [
     {
       name: "Dusty",
@@ -213,20 +214,27 @@ const pets = [
     }
   ];
 
+// Print to DOM
+
 const printToDom = (divId, textToPrint) => {
     const selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = textToPrint;
 };  
 
+// Card Builder
+
 const buildPetCards = () => {
     let domString = '';
     for (let i = 0; i < pets.length; i++) {
-      domString += `<div class="petCard">`;
+      //domString += `<div class="petCard">`;
       if (pets[i].type === 'dog') {
+        domString += `<div class="" id="dogsCard">`;
         domString += `<header class="petName" id="dogs"><h2>${pets[i].name}</h2></header>`;
       } else if (pets[i].type === 'cat') {
+        domString += `<div class="" id="catsCard">`;
         domString += `<header class="petName" id="cats"><h2>${pets[i].name}</h2></header>`;
       } else {
+        domString += `<div class="" id="dinosCard">`;
         domString += `<header class="petName" id="dinos"><h2>${pets[i].name}</h2></header>`;
       }
       domString += `<section class="petImage"><img src=${pets[i].imageUrl} alt="A ${pets[i].color} ${pets[i].type} named ${pets[i].name}"></section>`;
@@ -240,6 +248,7 @@ const buildPetCards = () => {
         domString += `<footer class="petType" id="dinos">${pets[i].type}</section>`;
       }
       domString += `</div>`;
+      //domString += `</div>`;
     }
     printToDom('pet-barn', domString);
 };
@@ -247,6 +256,55 @@ const buildPetCards = () => {
 buildPetCards();
 
 // Event Handler
-document.getElementById("myBtn").addEventListener("click", function() {
-  alert("Hello World!");
+
+const dogs = document.getElementById("dogsButton");
+const dogsCard = document.getElementById("dogsCard");
+
+const cats = document.getElementById("catsButton");
+const catsCard = document.getElementById("catsCard");
+
+const dinos = document.getElementById("dinosButton");
+const dinosCard = document.getElementById("dinosCard");
+
+
+dogs.addEventListener("click", function() {
+  if (dogsCard.className === "hide") {
+    dogsCard.className = "";
+  } else {
+    dogsCard.className = "hide";
+  } 
+  //alert("DOGS!");
 });
+
+cats.addEventListener("click", function() {
+  if (catsCard.className === "hide") {
+    catsCard.className = "";
+  } else {
+    catsCard.className = "hide";
+  }
+  //alert("CATS!");
+});
+
+dinos.addEventListener("click", function() {
+  if (dinosCard.className === "hide") {
+    dinosCard.className = "";
+  } else {
+    dinosCard.className = "hide";
+  }
+  //alert("DINOS!");
+});/* */
+
+const petOrganizer = () => {
+
+}
+/*
+var simon = document.getElementById("simon");
+var simonPic = document.getElementById("simon-pic");
+
+simon.addEventListener("click", function() {
+  if (simonPic.className === "hide") {
+    simonPic.className = "";
+  } else {
+    simonPic.className = "hide";
+  }
+}); */
