@@ -1,3 +1,5 @@
+/* BODY */
+
 body {
     background-color: rgb(46, 139, 127);
     color: rgb(255, 218, 6);
@@ -5,9 +7,21 @@ body {
     text-align: center;
 }
 
+/* HEADER */
+/*header {
+    margin: auto;   
+    width: 100%;
+}*/
+
 h1 {
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.712);
 }
+
+/* NAV */
+/*.navbar {
+    margin: auto;   
+    width: 100%;
+}*/
 
 nav {
     display: flex;
@@ -15,17 +29,37 @@ nav {
     margin-bottom: 30px;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.575);
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .button {
     color: white;
     background-color: rgb(170, 170, 170);
-   /* flex-grow: 1; */
-    margin: 5px;
+    margin: 3px;
+    padding-top: 6px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.514);
-    width: 60px;
+    width: 75px;
+    height: 30px;
+    border-radius: 5px;
 }
+
+
+/* LINKs */
+a:link {
+    color: rgb(255, 187, 0);
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: rgb(255, 251, 42);
+    border-radius: 5px;
+    /* box-shadow: 0px 1px 4px rgb(255, 251, 42); */   
+}
+
+a:active {
+    background-color: rgb(194, 191, 0);
+}
+/* PETS */
 
 #cats {
     color: rgb(255, 187, 0);
@@ -41,6 +75,8 @@ nav {
     color: rgb(255, 187, 0);
     background-color: rgb(224, 127, 0) ;
 }
+
+/* PET CARDS */
 
 #pet-barn {
     display: flex;
@@ -58,8 +94,11 @@ nav {
     border-radius: 10px;
 }
 
+.petName {
+    border-radius: 10px 10px 0px 0px;
+}
+
 .petName h2 {
-    background-color: rgb(170, 170, 170);
     height: 50px;
     margin-top: 0px;
     padding-top: 5px;
