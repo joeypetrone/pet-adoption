@@ -17,18 +17,18 @@ const pets = [
       imageUrl: "http://www.jozilife.co.za/wp-content/uploads/The-Dino-Expo.jpg"
     },
     {
-      name: "Whiskers",
-      color: "Yellow",
-      specialSkill: "Can prove he is a real man by drinking whiskey.",
-      type: "dino",
-      imageUrl: "https://mydinosaurs.com/wp-content/uploads/2017/02/2-3-600x400.jpg"
-    },
-    {
       name: "Coco",
       color: "Black",
       specialSkill: "Burps minimally.",
       type: "dog",
       imageUrl: "http://cdn.akc.org/content/article-body-image/funny-pembroke_welsh_corgi.jpg"
+    },
+    {
+      name: "Whiskers",
+      color: "Yellow",
+      specialSkill: "Can prove he is a real man by drinking whiskey.",
+      type: "dino",
+      imageUrl: "https://mydinosaurs.com/wp-content/uploads/2017/02/2-3-600x400.jpg"
     },
     {
       name: "Spooky",
@@ -73,7 +73,7 @@ const pets = [
       imageUrl: "https://i.pinimg.com/originals/04/54/92/0454926d39eeb420f4f01948e94e9e41.jpg"
     },
     {
-      name: "Coco",
+      name: "Coconut",
       color: "Orange",
       specialSkill: "Can be around food without staring creepily at it.",
       type: "dino",
@@ -101,7 +101,7 @@ const pets = [
       imageUrl: "http://3.bp.blogspot.com/-RzIFLsIO-XQ/UFoMLOT66JI/AAAAAAAAVps/JRF98hdA9S8/s640/funny-cat-pictures-016-027.jpg"
     },
     {
-      name: "Coco",
+      name: "Tigger",
       color: "Red",
       specialSkill: "Burps minimally.",
       type: "cat",
@@ -136,7 +136,7 @@ const pets = [
       imageUrl: "https://mymodernmet.com/wp/wp-content/uploads/2019/11/dogs-are-the-best-people-frog-dog-studios-16.jpg"
     },
     {
-      name: "Spooky",
+      name: "Shadow",
       color: "Black",
       specialSkill: "Uses litter box at appropriate hours.",
       type: "cat",
@@ -171,7 +171,7 @@ const pets = [
       imageUrl: "http://www.dogbreedplus.com/dog_breeds/images/basset-hound-4.jpg"
     },
     {
-      name: "Salem",
+      name: "Felix",
       color: "Red",
       specialSkill: "Knows the words to 4 rap songs.",
       type: "cat",
@@ -226,15 +226,17 @@ const printToDom = (divId, textToPrint) => {
 const buildPetCards = () => {
     let domString = '';
     for (let i = 0; i < pets.length; i++) {
-      //domString += `<div class="petCard">`;
       if (pets[i].type === 'dog') {
-        domString += `<div class="" id="dogsCard">`;
+        domString += `<div class="unhide" id="${pets[i].name}">`;
+        domString += `<div class="petCard">`; 
         domString += `<header class="petName" id="dogs"><h2>${pets[i].name}</h2></header>`;
       } else if (pets[i].type === 'cat') {
-        domString += `<div class="" id="catsCard">`;
+        domString += `<div class="unhide" id="${pets[i].name}">`;
+        domString += `<div class="petCard">`; 
         domString += `<header class="petName" id="cats"><h2>${pets[i].name}</h2></header>`;
       } else {
-        domString += `<div class="" id="dinosCard">`;
+        domString += `<div class="unhide" id="${pets[i].name}">`;
+        domString += `<div class="petCard">`; 
         domString += `<header class="petName" id="dinos"><h2>${pets[i].name}</h2></header>`;
       }
       domString += `<section class="petImage"><img src=${pets[i].imageUrl} alt="A ${pets[i].color} ${pets[i].type} named ${pets[i].name}"></section>`;
@@ -248,7 +250,7 @@ const buildPetCards = () => {
         domString += `<footer class="petType" id="dinos">${pets[i].type}</section>`;
       }
       domString += `</div>`;
-      //domString += `</div>`;
+      domString += `</div>`;
     }
     printToDom('pet-barn', domString);
 };
@@ -257,54 +259,63 @@ buildPetCards();
 
 // Event Handler
 
-const dogs = document.getElementById("dogsButton");
-const dogsCard = document.getElementById("dogsCard");
+const dogs = document.getElementById('dogsButton');
+const cats = document.getElementById('catsButton');
+const dinos = document.getElementById('dinosButton');
+const all = document.getElementById('allButton');
 
-const cats = document.getElementById("catsButton");
-const catsCard = document.getElementById("catsCard");
-
-const dinos = document.getElementById("dinosButton");
-const dinosCard = document.getElementById("dinosCard");
-
-
+// Dog Button
 dogs.addEventListener("click", function() {
-  if (dogsCard.className === "hide") {
-    dogsCard.className = "";
-  } else {
-    dogsCard.className = "hide";
-  } 
-  //alert("DOGS!");
+  for (let i = 0; i < pets.length; i++) {
+    if (pets[i].type === 'dog') {
+      if (document.getElementById(`${pets[i].name}`).className === 'hide') {
+       document.getElementById(`${pets[i].name}`).className = "unhide";
+      } else {
+       document.getElementById(`${pets[i].name}`).className = "hide";
+      }
+    } else {
+      // do nothing
+    }
+  }
 });
 
+// Cat Button
 cats.addEventListener("click", function() {
-  if (catsCard.className === "hide") {
-    catsCard.className = "";
-  } else {
-    catsCard.className = "hide";
+  for (let i = 0; i < pets.length; i++) {
+    if (pets[i].type === 'cat') {
+      if (document.getElementById(`${pets[i].name}`).className === 'hide') {
+       document.getElementById(`${pets[i].name}`).className = "unhide";
+      } else {
+       document.getElementById(`${pets[i].name}`).className = "hide";
+      }
+    } else {
+      // do nothing
+    }
   }
-  //alert("CATS!");
 });
 
+// Dino Button
 dinos.addEventListener("click", function() {
-  if (dinosCard.className === "hide") {
-    dinosCard.className = "";
-  } else {
-    dinosCard.className = "hide";
+  for (let i = 0; i < pets.length; i++) {
+    if (pets[i].type === 'dino') {
+      if (document.getElementById(`${pets[i].name}`).className === 'hide') {
+       document.getElementById(`${pets[i].name}`).className = "unhide";
+      } else {
+       document.getElementById(`${pets[i].name}`).className = "hide";
+      }
+    } else {
+      // do nothing
+    }
   }
-  //alert("DINOS!");
-});/* */
+});
 
-const petOrganizer = () => {
-
-}
-/*
-var simon = document.getElementById("simon");
-var simonPic = document.getElementById("simon-pic");
-
-simon.addEventListener("click", function() {
-  if (simonPic.className === "hide") {
-    simonPic.className = "";
-  } else {
-    simonPic.className = "hide";
+// All Button
+all.addEventListener("click", function() {
+  for (let i = 0; i < pets.length; i++) {
+    if (document.getElementById(`${pets[i].name}`).className === 'hide') {
+      document.getElementById(`${pets[i].name}`).className = "unhide";
+    } else {
+      //do nothing
+    }
   }
-}); */
+});
