@@ -1,5 +1,3 @@
-console.log('Hello Pets')
-
 // Pet Objects
 const pets = [
     {
