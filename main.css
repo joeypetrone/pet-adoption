@@ -12,10 +12,12 @@ body {
 }
 
 h1 {
+    font-size: 44px;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.712);
 }
 
-nav {
+/* BUTTONS */
+.buttons-bar {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 30px;
@@ -24,31 +26,47 @@ nav {
     justify-content: space-evenly;
 }
 
-.button {
-    color: white;
-    background-color: rgb(170, 170, 170);
-    margin: 4px;
-    padding-top: 6px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.514);
-    width: 75px;
-    height: 30px;
-    border-radius: 5px;
-}
-
-
-/* LINKs */
-a:link {
+button {
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.575);
+    font-family: 'Bowlby One SC', cursive;
+    font-size: x-large;
     color: rgb(255, 187, 0);
-    text-decoration: none;
+    margin: 0px;
+    margin-top: 10px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.514);
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
 }
 
-a:hover {
-    background-color: rgb(255, 251, 42);
-    border-radius: 8px;
+button:hover {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.514);
 }
 
-a:active {
-    background-color: rgb(194, 191, 0);
+button:active {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.514);
+}
+
+button:focus {
+    border: none;
+}
+
+#catsButton {
+    background-color:rgb(23, 97, 255);
+}
+
+#dogsButton {
+    background-color: rgb(57, 150, 57);
+}
+
+#dinosButton {
+    background-color: rgb(224, 127, 0) ;
+}
+
+#allButton {
+    background-color: rgb(170, 170, 170);
 }
 
 /* PETS */
@@ -65,7 +83,7 @@ a:active {
 
 #dinos {
     color: rgb(255, 187, 0);
-    background-color: rgb(224, 127, 0) ;
+    background-color: rgb(224, 127, 0);
 }
 
 /* PET CARDS */
@@ -96,6 +114,7 @@ a:active {
 }
 
 .petName h2 {
+    font-size: xx-large;
     height: 50px;
     margin-top: 0px;
     padding-top: 5px;
@@ -120,13 +139,14 @@ a:active {
 }
 
 .petType {
+    font-size: x-large;
     height: 40px;
     background-color: rgba(255, 255, 255, 0.384);
     padding-top: 8px;
     border-radius: 0px 0px 10px 10px;
 } 
 
-/* FOOTER */
+/* HIDE FUNCTION */
 
 .hide {
     display: none;
