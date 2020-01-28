@@ -53,19 +53,19 @@ button:focus {
     border: none;
 }
 
-#catsButton {
+#cat {
     background-color:rgb(23, 97, 255);
 }
 
-#dogsButton {
+#dog {
     background-color: rgb(57, 150, 57);
 }
 
-#dinosButton {
+#dino {
     background-color: rgb(224, 127, 0) ;
 }
 
-#allButton {
+#all {
     background-color: rgb(170, 170, 170);
 }
 
@@ -145,13 +145,3 @@ button:focus {
     padding-top: 8px;
     border-radius: 0px 0px 10px 10px;
 } 
-
-/* HIDE FUNCTION */
-
-.hide {
-    display: none;
-}
-
-.unhide {
-    display: initial;
-}
