@@ -213,39 +213,37 @@ const pets = [
   ];
 
 // Print to DOM
-
 const printToDom = (divId, textToPrint) => {
     const selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = textToPrint;
 };  
 
 // Card Builder
-
-const buildPetCards = () => {
+const buildPetCards = (thing) => {
     let domString = '';
-    for (let i = 0; i < pets.length; i++) {
-      if (pets[i].type === 'dog') {
-        domString += `<div class="unhide" id="${pets[i].name}">`;
+    for (let i = 0; i < thing.length; i++) {
+      if (thing[i].type === 'dog') {
+        domString += `<div class="unhide" id="${thing[i].name}">`;
         domString += `<div class="petCard">`; 
-        domString += `<header class="petName" id="dogs"><h2>${pets[i].name}</h2></header>`;
-      } else if (pets[i].type === 'cat') {
-        domString += `<div class="unhide" id="${pets[i].name}">`;
+        domString += `<header class="petName" id="dogs"><h2>${thing[i].name}</h2></header>`;
+      } else if (thing[i].type === 'cat') {
+        domString += `<div class="unhide" id="${thing[i].name}">`;
         domString += `<div class="petCard">`; 
-        domString += `<header class="petName" id="cats"><h2>${pets[i].name}</h2></header>`;
+        domString += `<header class="petName" id="cats"><h2>${thing[i].name}</h2></header>`;
       } else {
-        domString += `<div class="unhide" id="${pets[i].name}">`;
+        domString += `<div class="unhide" id="${thing[i].name}">`;
         domString += `<div class="petCard">`; 
-        domString += `<header class="petName" id="dinos"><h2>${pets[i].name}</h2></header>`;
+        domString += `<header class="petName" id="dinos"><h2>${thing[i].name}</h2></header>`;
       }
-      domString += `<section class="petImage"><img src=${pets[i].imageUrl} alt="A ${pets[i].color} ${pets[i].type} named ${pets[i].name}"></section>`;
-      domString += `<section class="petColor">${pets[i].color}</section>`;
-      domString += `<section class="petSkill">${pets[i].specialSkill}</section>`;
-      if (pets[i].type === 'dog') {
-        domString += `<footer class="petType" id="dogs">${pets[i].type}</section>`;
-      } else if (pets[i].type === 'cat') {
-        domString += `<footer class="petType" id="cats">${pets[i].type}</section>`;
+      domString += `<section class="petImage"><img src=${thing[i].imageUrl} alt="A ${thing[i].color} ${thing[i].type} named ${thing[i].name}"></section>`;
+      domString += `<section class="petColor">${thing[i].color}</section>`;
+      domString += `<section class="petSkill">${thing[i].specialSkill}</section>`;
+      if (thing[i].type === 'dog') {
+        domString += `<footer class="petType" id="dogs">${thing[i].type}</section>`;
+      } else if (thing[i].type === 'cat') {
+        domString += `<footer class="petType" id="cats">${thing[i].type}</section>`;
       } else {
-        domString += `<footer class="petType" id="dinos">${pets[i].type}</section>`;
+        domString += `<footer class="petType" id="dinos">${thing[i].type}</section>`;
       }
       domString += `</div>`;
       domString += `</div>`;
@@ -253,8 +251,7 @@ const buildPetCards = () => {
     printToDom('pet-barn', domString);
 };
 
-buildPetCards();
-
+/*
 // Event Handler
 
 const dogs = document.getElementById('dogsButton');
@@ -316,4 +313,36 @@ all.addEventListener("click", function() {
       //do nothing
     }
   }
-});
+});*/
+
+// Find Pets Function
+const findMyPets = (e) => {
+  const buttonId = e.target.id;
+  if (buttonId === 'all') {
+    buildPetCards(pets);
+  } else {
+      const myPets = [];
+      for (let i=0; i < pets.length; i++) {
+          if( pets[i].type === buttonId) {
+              myPets.push(pets[i]);
+          }
+      }
+      buildPetCards(myPets);
+  }
+};
+
+// Click Events Organizer
+const events = () => {
+  document.getElementById('cat').addEventListener('click', findMyPets);
+  document.getElementById('dog').addEventListener('click', findMyPets);
+  document.getElementById('dino').addEventListener('click', findMyPets);
+  document.getElementById('all').addEventListener('click', findMyPets);
+};
+
+// Initial Function
+const init = () => {
+  buildPetCards(pets);
+  events();
+};
+
+init();
